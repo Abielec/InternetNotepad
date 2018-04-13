@@ -24,7 +24,7 @@
             <tr>
                 <td>{{ $Product->id }}</td>
                 <td>{{ $Product->ProductName }}</td>
-                <td>{{ $Product->Calories }}<sub>g</sub></td>
+                <td>{{ $Product->Calories }}<sub>kcal</sub></td>
                 <td>{{ $Product->Carbohydrates }}<sub>g</sub></td>
                 <td>{{ $Product->Fats }}<sub>g</sub></td>
                 <td>{{ $Product->Proteins }}<sub>g</sub></td>

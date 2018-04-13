@@ -50,7 +50,8 @@ $Information = DB::table('persons')
     ->select('make_products.ProductName','eatens.EatedAbout','Calories','Carbohydrates','Fats','Proteins','Roughages','eatens.EatedWeight')
     ->join('users','eatens.EatedBy','=','users.id')
     ->join('make_products','make_products.id','=','eatens.EatedProduct')
-    ->where('EatedDate','=',"$CurrentTime")
+    ->where('EatedDate','=',"$CurrentTime",'AND','EatedBy','=','ID')
+    ->where('EatedBy','=',"$ID")
     ->get();
 @endphp
         <div class="container-fluid">
