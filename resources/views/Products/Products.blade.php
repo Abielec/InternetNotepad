@@ -6,7 +6,7 @@
     <table class="table">
         <thead>
             <tr>
-                <td>Id produktu</td>
+                <td>Kod kreskowy produktu</td>
                 <td>Nazwa produktu</td>
                 <td>Kalorie<sub><small>na 100g</small></sub></td>
                 <td>Węglowodany<sub><small>na 100g</small></sub></td>
@@ -22,14 +22,14 @@
     <tbody>
         @foreach($Products as $Product)
             <tr>
-                <td>{{ $Product->id }}</td>
+                <td>@if($Product->Barcode==null)Brak @else {{$Product->Barcode}} @endif</td>
                 <td>{{ $Product->ProductName }}</td>
                 <td>{{ $Product->Calories }}<sub>kcal</sub></td>
                 <td>{{ $Product->Carbohydrates }}<sub>g</sub></td>
                 <td>{{ $Product->Fats }}<sub>g</sub></td>
                 <td>{{ $Product->Proteins }}<sub>g</sub></td>
                 <td>{{ $Product->Roughages }}<sub>g</sub></td>
-                <td>{{ $Product->Vitamins }}</td>
+                <td>@if($Product->Vitamins ==null) - @else {{$Product->Vitamins}} @endif</td>
                 <td>@if($Product->Description ==null) Brak @else {{$Product->Description}} @endif</td>
                 <td>
                 @php $ProductNames = DB::table('make_products')
