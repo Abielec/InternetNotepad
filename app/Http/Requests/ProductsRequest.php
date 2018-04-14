@@ -24,13 +24,14 @@ class ProductsRequest extends FormRequest
     public function rules()
     {
         return [
-            'ProductName' => 'required|max:255',
+            'ProductName' => 'required|max:255|unique:make_products',
+            'Barcode' => 'integer|unique:make_products|nullable',
             'Calories' => 'required|numeric|min:0',
             'Carbohydrates' => 'required|numeric|min:0',
             'Fats' => 'required|numeric|min:0',
             'Roughages' => 'required|min:0|numeric',
             'Proteins' => 'required|numeric|min:0',
-            'Vitamins' => 'required|max:255|string',
+            'Vitamins' => 'nullable|max:255|string',
             'Description' => 'nullable',
             'Category' => 'required|integer',
         ];

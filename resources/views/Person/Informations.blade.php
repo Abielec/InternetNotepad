@@ -50,7 +50,7 @@ $Information = DB::table('persons')
     ->select('make_products.ProductName','eatens.EatedAbout','Calories','Carbohydrates','Fats','Proteins','Roughages','eatens.EatedWeight')
     ->join('users','eatens.EatedBy','=','users.id')
     ->join('make_products','make_products.id','=','eatens.EatedProduct')
-    ->where('EatedDate','=',"$CurrentTime",'AND','EatedBy','=','ID')
+    ->where('EatedDate','=',"$CurrentTime")
     ->where('EatedBy','=',"$ID")
     ->get();
 @endphp
@@ -65,11 +65,13 @@ $Information = DB::table('persons')
                                 @php
                                     if($Gender=='Male')
                                     {
-                                        echo (66+(13.7*$Weight) + (5*$Height) - (6.76*$Age));
+                                        $BMR = $Weight*24*1.15;
+                                        echo $BMR;
                                     }
                                     else
                                     {
-                                        echo 655+(9.6*$Weight) + (1.8*$Height) - (4.7*$Age);
+                                       $BMR = $Weight*24*0.9*1.15;
+                                       echo $BMR;
                                     }
                                 @endphp
                             </td>
@@ -198,6 +200,11 @@ $Information = DB::table('persons')
                     <td><b>{{ $Roughages }}<sub>g</sub></b></td>
                 </tr>
                 </table>
+                <div style="margin-left:40px;">Możesz zjeść jeszcze: {{ $BMR-$CaloriesToday }}<sub>kcal</sub><br />
+                    Twój organizm potrzebuje {{ Round($Weight/30,2) }}L wody dziennie<br />
+                    Organizm średnio potrzebuje 50% węglowodanów względem diety, więc możesz jeszcze zjeść {{($BMR/2) - $Carbohydrates }}<sub>g</sub>
+                
+                </div>
             </div>
         </div>
 @endsection
