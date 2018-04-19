@@ -15,31 +15,31 @@
             <input type="hidden" value="{{Auth::user()->id}}" name="PersonId" />
             <div class="form-row">
                 <div class="form-group col-md-2">
-                    <label for="Calf">Łydka</label>
+                    <label for="Calf">Łydka<sub>cm</sub></label>
                     <input type="number" min=0  class="form-control" id="Calf" name="Calf"/>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="Pas">Pas</label>
+                    <label for="Pas">Pas<sub>cm</sub></label>
                     <input type="number" min=0 required class="form-control" id="Pas" name="Pas"/>
                 </div>
                 <div class="form-group col-md-2">
-                    <label for="Waist">Talia</label>
+                    <label for="Waist">Talia<sub>cm</sub></label>
                     <input type="number" min=0 required class="form-control" id="Waist" name="Waist"/>
                 </div>
                 <div class="form-group col-md-2">
-                        <label for="Chest">Klatka piersiowa</label>
+                        <label for="Chest">Klatka piersiowa<sub>cm</sub></label>
                         <input type="number" min=0 required class="form-control" id="Chest" name="Chest"/>
                  </div> 
                  <div class="form-group col-md-2">
-                        <label for="Hips">Biodra</label>
+                        <label for="Hips">Biodra<sub>cm</sub></label>
                         <input type="number" min=0 required class="form-control" id="Hips" name="Hips"/>
                 </div>
                 <div class="form-group col-md-2">
-                        <label for="Thigh">Udo</label>
+                        <label for="Thigh">Udo<sub>cm</sub></label>
                         <input type="number" min=0 required class="form-control" id="Thigh" name="Thigh"/>
                 </div>
                                 <div class="form-group col-md-2">
-                        <label for="Arm">Ramię</label>
+                        <label for="Arm">Ramię<sub>cm</sub></label>
                         <input type="number" min=0 required class="form-control" id="Arm" name="Arm"/>
                 </div>
             </div>

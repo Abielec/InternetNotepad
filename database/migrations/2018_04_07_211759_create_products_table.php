@@ -16,13 +16,14 @@ class CreateProductsTable extends Migration
         Schema::create('make_products', function (Blueprint $table) {
             $table->increments('id');
             $table->string('ProductName')->unique();
+            $table->string('Barcode')->unique()->nullable();
             $table->integer('Category')->unsigned();
             $table->float('Calories',8,2);
             $table->float('Carbohydrates',8,2);
             $table->float('Fats',8,2);
             $table->float('Proteins',8,2);
             $table->float('Roughages',8,2);
-            $table->char('Vitamins',100);
+            $table->char('Vitamins',100)->nullable();
             $table->longText('Description')->nullable();
             $table->timestamps();
         });

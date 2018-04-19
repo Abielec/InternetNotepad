@@ -31,7 +31,11 @@ class FillInformationsRequest extends FormRequest
             'Height' => 'required|numeric',
             'Weight' => 'required|numeric',
             'Age' => 'required|date|date_format:Y-m-d|before:today',
-            'Gender' => 'required',
+            'Gender' => 'required|in:Male,Female',
+            'Destination' => 'required|in:LoseWeight,GainWeight',
+            'FitWaist' => 'required|in:Yes,No',
+            'Pattern' => 'required|in:Mifflin,Harris',
+            'ShowBMI' => 'required|in:Yes,No',
         ];
     }
     public function messages(){
@@ -45,9 +49,14 @@ class FillInformationsRequest extends FormRequest
             'Weight.required' => 'Pole waga jest wymagane',
             'Weight.numeric' => 'Pole waga musi być liczbą',
             'Age.required' => 'Pole z wiekiem jest wymagane',
-            'Age.date' => 'Błędna data',
+            'Age.date' => 'Błędna data, w polu z wiekiem',
             'Age.date_format' => 'Dostępyn format daty to : Rok-Miesiąc-Dzień',
             'Age.before' => 'Błędna data, nie mogłeś się urodzić w przyszłości',
+            'Destination.required' => 'Pole z celem jest wymagane',
+            'Destination.in' => 'Została wysłana zła wartość, w polu z celem',
+            'FitWaist.required' => 'Pole z opaską jest wymagane',
+            'FitWaist.in' => 'Została wysłana zła wartość, w polu z opaską',
+            'Pattern.in' => 'Możesz wybrać jedynie wzory Mifflina lub Harrisa'
         ];
     }
 }

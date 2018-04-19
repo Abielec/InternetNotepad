@@ -48,6 +48,8 @@ class FilledPersonInformation
             return redirect()->route('FillInformation');
         else if($RecordsInformation >0 && url()->current() == $URL && $RecordsGirt <=0)
             return $next($request);
+        else if($RecordsInformation >0 && url()->current() != $URL && $RecordsGirt <=0)
+            return redirect()->route('Girts');
         else if($RecordsInformation >0 && url()->current() == $URL && $RecordsGirt >0 )
             return redirect()->route('UserInformation');
     return $next($request);

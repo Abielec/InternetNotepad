@@ -16,9 +16,13 @@
         @csrf
     <fieldset>
         <div class="form-row">
-                <div class="form-group col-md-12">
+                <div class="form-group col-md-6">
                         <label for="ProductName">Nazwa Produktu</label>
                         <input type="text" required class="form-control" id="ProductName" name="ProductName" placeholder="np. Jabłko"/>
+                </div>
+                <div class="form-group col-md-6">
+                        <label for="Barcode">Kod kreskowy produktu <sub>(6 ostatnich cyfr)</sub></label>
+                        <input type="text" class="form-control" id="Barcode" name="Barcode" placeholder="136545" maxlength="6" />
                 </div>
         </div>
         <div class="form-row">
@@ -44,7 +48,7 @@
                 </div>
                 <div class="form-group col-md-4">
                         <label for="Vitamins" class="col-sm-12 col-form-label">Witaminy produktu</label>
-                        <input type="text" step=0.1 min=0 required class="form-control" id="Vitamins" name="Vitamins"/>
+                        <input type="text" step=0.1 min=0 class="form-control" id="Vitamins" name="Vitamins"/>
                 </div>
                 <div class="form-group col-md-4">
                         <label for="Category" class="col-sm-12 col-form-label">Podaj kategorie produktu</label>

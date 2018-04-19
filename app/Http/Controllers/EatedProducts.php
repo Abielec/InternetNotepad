@@ -14,7 +14,7 @@ class EatedProducts extends Controller
      */
     public function index()
     {
-        //
+        return view('Person.EatedList');
     }
 
     /**
@@ -39,6 +39,7 @@ class EatedProducts extends Controller
             $Product = DB::table('make_products')
                 ->select('id')
                 ->where('ProductName','=',"$request->EatedProduct")
+                ->orWhere('Barcode','=',"$request->EatedProduct")
                 ->first();
             if($Product)
             {

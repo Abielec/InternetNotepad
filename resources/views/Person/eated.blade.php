@@ -18,7 +18,7 @@
                 <input type="hidden" value="{{ Auth::user()->id }}" name="EatedBy" />
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="EatedProduct" class="col-sm-12 col-form-label">Podaj jaki produkt zjadłeś</label>
+                        <label for="EatedProduct" class="col-sm-12 col-form-label">Nazwa produktu lub kod kreskowy</label>
                         <input type="text" name="EatedProduct" id="EatedProduct" required class="form-control" />
                     </div>
                     <div class="form-group col-md-6">
