@@ -9,7 +9,7 @@
 
 $ID = Auth::user()->id;
 $Information = DB::table('persons')
-    ->select('persons.Name','LastName','Height','Weight','Age','Gender')
+    ->select('persons.Name','LastName','Height','Weight','Age','Gender','ShowBMI','Pattern')
     ->join('users','persons.PersonId','=','users.id')
     ->where('persons.PersonId','=',"$ID")
     ->first();
@@ -19,6 +19,8 @@ $Information = DB::table('persons')
                 $Weight = $Information->Weight;
                 $Age = $Information->Age;
                 $Gender = $Information->Gender;
+                $ShowBMI = $Information->ShowBMI;
+                $Pattern = $Information->Pattern;
             // Check how old are person
     $Years = Carbon\Carbon::Parse($Age)->year;
     $Months = Carbon\Carbon::Parse($Age)->month;
@@ -60,28 +62,32 @@ $Information = DB::table('persons')
                 <div class="col">
                     <table id="PersonalInformation" style="float:left;">
                         <tr>
-                            <td>BMR</td>
+                            <td>CPM</td>
                             <td>
                                 @php
                                     if($Gender=='Male')
                                     {
-                                        echo (66+(13.7*$Weight) + (5*$Height) - (6.76*$Age));
+                                            $BMR = $Weight*24*1.15;
+                                            echo $BMR;
                                     }
                                     else
                                     {
-                                        echo 655+(9.6*$Weight) + (1.8*$Height) - (4.7*$Age);
+                                       $BMR = $Weight*24*0.9*1.15;
+                                       echo $BMR;
                                     }
                                 @endphp
                             </td>
                         </tr>
-                        <tr>
+                       @if($ShowBMI == 'Yes') <tr>
                             <td>BMI</td>
                             <td>
                                 @php    
-                                    echo Round($Weight/(($Height/100)*($Height/100)),2);
+                                    $BMI = Round($Weight/(($Height/100)*($Height/100)),2);
+                                    echo $BMI;
                                 @endphp
                             </td>
                         </tr>
+                        @endif
                         <tr>
                             <td colspan="2">Wymiary</td>
                         </tr>
@@ -146,6 +152,7 @@ $Information = DB::table('persons')
                             <td> {{ $CaloriesToday }}</td>
                     </table>
                     <a href="{{ route('Eated') }}">Zjedz coś</a>
+                    <a href="{{ route('EatedList') }}">Wszystkie zjedzone produkty</a>
                 </div>
                 <div class="col">
                     <table id="PersonalInformation" style="float:right;">
@@ -198,6 +205,35 @@ $Information = DB::table('persons')
                     <td><b>{{ $Roughages }}<sub>g</sub></b></td>
                 </tr>
                 </table>
+                <div style="margin-left:40px;">Możesz zjeść jeszcze: {{ $BMR-$CaloriesToday }}<sub>kcal</sub><br />
+                    Twój organizm potrzebuje {{ Round($Weight/30,2) }}L wody dziennie<br />
+                    Organizm średnio potrzebuje 50% węglowodanów względem diety, więc możesz jeszcze zjeść {{($BMR/2) - $Carbohydrates }}<sub>g</sub><br />
+                    @php
+                        if($BMI<18.5){
+                                echo "Masz niedowagę, ";
+                                if($Gender == 'Male') 
+                                    echo "powinieneś";
+                                else {
+                                    echo "powinnaś";
+                                } 
+                                echo " jeść więcej";
+                            }
+                        else if($BMI>18.5 && $BMI <= 24.99){
+                                echo "Posiadasz wagę prawidłową. ";
+                            }
+                        else if($BMI>24.99)
+                        {
+                            echo "Masz nadwagę ";
+                            if($Gender == 'Male') 
+                                    echo "powinieneś";
+                                else {
+                                    echo "powinnaś";
+                                } 
+                                echo " jeść mniej";
+                            }
+                        
+                    @endphp
+                </div>
             </div>
         </div>
 @endsection

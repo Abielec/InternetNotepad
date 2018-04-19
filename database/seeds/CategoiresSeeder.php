@@ -11,6 +11,9 @@ class CategoiresSeeder extends Seeder
      */
     public function run()
     {
+        $Category = new Categories();
+        $Category->categoryname = "Brak";
+        $Category->save();
 
         $Category = new Categories();
         $Category->categoryname = 'Owoce';
@@ -19,7 +22,15 @@ class CategoiresSeeder extends Seeder
         $Category = new Categories();
         $Category->categoryname = 'Warzywa';
         $Category->save();
+
+        $Category = new Categories();
+        $Category->categoryname = 'Napoje i alkohole';
+        $Category->save();
         
+        $Category = new Categories();
+        $Category->categoryname = 'Fast food';
+        $Category->save();
+
         $Category = new Categories();
         $Category->categoryname = 'Nabiał';
         $Category->save();
@@ -29,7 +40,11 @@ class CategoiresSeeder extends Seeder
         $Category->save();
 
         $Category = new Categories();
-        $Category->categoryname = 'Rośliny';
+        $Category->categoryname = 'Roślinne';
+        $Category->save();
+
+        $Category = new Categories();
+        $Category->categoryname = 'Nabiał i jaja';
         $Category->save();
 
         $Category = new Categories();

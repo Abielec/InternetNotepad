@@ -21,6 +21,10 @@ class CreatePersonsTable extends Migration
             $table->float('Weight',8,2);
             $table->date('Age');
             $table->enum('Gender',['Male','Female']);
+            $table->enum('Destination',['LoseWeight','GainWeight']);
+            $table->enum('FitWaist',['Yes','No']);
+            $table->enum('ShowBMI',['Yes','No']);
+            $table->enum('Pattern',['Mifflin','Harris']);
             $table->timestamps();
         });
         Schema::table('persons', function (Blueprint $table) {       

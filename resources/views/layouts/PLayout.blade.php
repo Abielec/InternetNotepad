@@ -20,7 +20,6 @@
         {
             padding:10px;
         }
-
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
@@ -37,23 +36,44 @@
             border:1px solid rgba(0,0,0,0.4);
         }
     </style>
+    @stack('styles')
     </head>
     <body>
-        <nav style="position:absolute;top:0;left:0;">
-            <a href="{{route('UserInformation')}}">Użytkownik</a>
-            <a href="{{route('Eated') }}">Zjedz coś</a>
-            <a href="{{route('PLista') }}">Lista produktów</a>
-            <a href="{{route('add') }}">Dodaj produkt</a>
-        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <a class="navbar-brand" href="{{route('Blog')}}">Trzymaj życie</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('Blog')}}">Blog<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ route('UserInformation')}}">Profil </a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('Eated')}}">Zjedz coś</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('PLista')}}">Produkty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('add')}}">Dodaj produkt</a>
+                    </li>
+                </ul>
+            </div>
+            </nav>        
         @yield('content')
         <footer >
             <!--Copyright-->
-            <div class="text-center" style="position:absolute;bottom:0;width:100%;padding:10px;">
+            <div class="text-center">
                 © 2018 Copyright:
                 Bielec Adrian
             </div>
             <!--/.Copyright-->
         
         </footer>
+        @stack('scripts')
     </body>
 </html>
