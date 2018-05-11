@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Persons extends Model
 {
     protected $fillable = [ 
-    'Name','LastName','Height','Weight','Age','Gender','PersonId','FitWaist','Pattern' , 'ShowBMI'
+    'Name','LastName','Height','Weight','Age','Gender','PersonId','FitWaist','Pattern' , 'ShowBMI','Activity'
 ];
     protected $hidden = [
         'PersonId'

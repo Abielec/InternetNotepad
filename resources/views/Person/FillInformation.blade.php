@@ -71,11 +71,23 @@
                                 <div class="form-group col-md-3">
                                         <label for="ShowBMI">Pokaż BMI</label>
                                       <select class="custom-select custom-selet-lg mb-12" name="ShowBMI" id="ShowBMI">
-                                          <option value="Yes" selected>Yes</option>
-                                          <option value="No">Tak</option>
+                                          <option value="Yes" selected>Tak</option>
+                                          <option value="No">Nie</option>
                                       </select>
                                       <small id="FitWaistHelp" class="form-text text-muted"><a href="#">Co to jest?<a></small>
-                                    </div>                                                           
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="Activity">Aktywność fizyczna</label>
+                                      <select class="custom-select custom-selet-lg mb-12" name="Activity" id="Activity">
+                                          <option value="Ill" selected>Brak aktywności</option>
+                                          <option value="Low">Niska aktywność</option>
+                                          <option value="Medium" selected>Umiarkowana aktywność</option>
+                                          <option value="Activ">Aktywny tryb życia</option>
+                                          <option value="Very Active">Bardzo aktywny tryb życia</option>
+                                          <option value="Proffesional">Wyczynowe uprawianie sportu</option>
+                                      </select>
+                                      <small id="FitWaistHelp" class="form-text text-muted"><a href="#">Co to jest?<a></small>
+                                    </div>                                                                
                     </div>
                       <button type="submit" class="btn btn-primary">Wyślij</button>
             </fieldset>

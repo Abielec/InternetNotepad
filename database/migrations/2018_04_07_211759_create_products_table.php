@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->string('ProductName')->unique();
             $table->string('Barcode')->unique()->nullable();
             $table->integer('Category')->unsigned();
-            $table->float('Calories',8,2);
-            $table->float('Carbohydrates',8,2);
-            $table->float('Fats',8,2);
-            $table->float('Proteins',8,2);
-            $table->float('Roughages',8,2);
+            $table->float('Calories',8,2)->unsigned();
+            $table->float('Carbohydrates',8,2)->unsigned();
+            $table->float('Fats',8,2)->unsigned();
+            $table->float('Proteins',8,2)->unsigned();
+            $table->float('Roughages',8,2)->unsigned();
             $table->char('Vitamins',100)->nullable();
             $table->longText('Description')->nullable();
             $table->timestamps();

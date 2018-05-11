@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->timestamps();
         });
         Schema::table('make_products', function (Blueprint $table) {       
-            $table->foreign('Category')->references('id')->on('categories');
+            $table->foreign('Category')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

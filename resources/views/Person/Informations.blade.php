@@ -83,7 +83,7 @@ $Information = DB::table('persons')
                             <td>
                                 @php    
                                     $BMI = Round($Weight/(($Height/100)*($Height/100)),2);
-                                    echo $BMI;
+                                    echo $ShowBMI;
                                 @endphp
                             </td>
                         </tr>
@@ -209,7 +209,7 @@ $Information = DB::table('persons')
                     Twój organizm potrzebuje {{ Round($Weight/30,2) }}L wody dziennie<br />
                     Organizm średnio potrzebuje 50% węglowodanów względem diety, więc możesz jeszcze zjeść {{($BMR/2) - $Carbohydrates }}<sub>g</sub><br />
                     @php
-                        if($BMI<18.5){
+                        if($ShowBMI<18.5){
                                 echo "Masz niedowagę, ";
                                 if($Gender == 'Male') 
                                     echo "powinieneś";
@@ -218,10 +218,10 @@ $Information = DB::table('persons')
                                 } 
                                 echo " jeść więcej";
                             }
-                        else if($BMI>18.5 && $BMI <= 24.99){
+                        else if($ShowBMI>18.5 && $ShowBMI <= 24.99){
                                 echo "Posiadasz wagę prawidłową. ";
                             }
-                        else if($BMI>24.99)
+                        else if($ShowBMI>24.99)
                         {
                             echo "Masz nadwagę ";
                             if($Gender == 'Male') 

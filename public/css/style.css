@@ -1,0 +1,67 @@
+
+.carousel-item-image {
+  height: 70vh;
+  background-size: cover !important;
+  background-attachment: fixed!important;
+  filter:brightness(60%);
+}
+.Motivation h1 {
+  border-top:5px;
+  border-bottom:5px;
+  border-left:3px;
+  border-right:3px;
+  border-color:#fff;
+  padding:20px;
+  border-style:solid;
+}
+.Motivation
+{
+  position: absolute;
+  top:0;
+  left:0;
+  display:flex;
+  width:100%;
+  height:70vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color:white;
+}
+.carousel
+{
+ /* box-shadow:0 0 20px black;*/
+}
+img{
+  max-width: 100%;
+}
+.first-container {
+  height: 100vh;
+}
+.Analize{
+  background-image:url("../img/fruit.png");
+  background-size:cover;
+  background-position: center ;
+}
+
+.Analize--h3,.Charts--h3
+{
+font-size:3rem;
+font-weight: bold;
+}
+.Analize__div--h4
+{
+  font-size:2.5rem;
+}
+.Analize__table td , .Analize__div--h4, .Analize--h3
+{
+  text-shadow:0 2px 14px black;
+}
+.Analize__table td 
+{
+  font-size:1.2rem;
+  font-family: 'Noto Sans', sans-serif;
+}
+.Text-NoShadow td
+{
+  text-shadow:0 0 0 rgba(0,0,0,0);
+}

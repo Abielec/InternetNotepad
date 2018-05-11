@@ -14,6 +14,7 @@ class CreateEatensTable extends Migration
     public function up()
     {
         Schema::create('eatens', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('EatedBy')->unsigned();
             $table->integer('EatedProduct')->unsigned();
             $table->float('EatedWeight')->unsigned();
@@ -21,9 +22,10 @@ class CreateEatensTable extends Migration
             $table->date('EatedDate');
             $table->timestamps();
         });
-        Schema::table('eatens', function (Blueprint $table) {       
-            $table->foreign('EatedBy')->references('id')->on('users');
-            $table->foreign('EatedProduct')->references('id')->on('make_products');
+        Schema::table('eatens', function (Blueprint $table) {
+            $table->foreign('EatedBy')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('EatedProduct')->references('id')->on('make_products')->onDelete('cascade');
+           
         });
     }
 

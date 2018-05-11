@@ -14,11 +14,12 @@ class CreatePersonsTable extends Migration
     public function up()
     {
         Schema::create('persons', function (Blueprint $table) {
-            $table->integer('PersonId')->unsigned();
+            $table->integer('PersonId')->unsigned()->primary();
             $table->string('Name');
             $table->string('LastName');
             $table->float('Height',8,2);
             $table->float('Weight',8,2);
+            $table->enum('Activity',['Ill','Low','Medium','Activ','Very Active','Proffesional']);
             $table->date('Age');
             $table->enum('Gender',['Male','Female']);
             $table->enum('Destination',['LoseWeight','GainWeight']);
@@ -28,7 +29,7 @@ class CreatePersonsTable extends Migration
             $table->timestamps();
         });
         Schema::table('persons', function (Blueprint $table) {       
-            $table->foreign('PersonId')->references('id')->on('users');
+            $table->foreign('PersonId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
