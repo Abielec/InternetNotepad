@@ -22,7 +22,7 @@ Route::post('Uzytkownik/informacje/uzupelnianie','Person@store')->name('DoFillIn
 Route::get('Uzytkownik/informacje/uzupelnianie/strona/2','Girts@create')->middleware('auth','CheckPersonInfo')->name('Girts');
 Route::post('Uzytkownik/informacje/uzupelnianie/strona/2','Girts@store')->name('DoGirts');
 //Osoba wyświetlanie informacje o użytkowniku
-Route::get('Uzytkownik/informacje','Person@index')->name('UserInformation')->middleware('CheckPersonInfo');
+Route::get('Uzytkownik','Person@index')->name('UserInformation')->middleware('CheckPersonInfo');
 //Tworzenie zjedzonych produktów przez użytkownika
 Route::get('Uzytkownik/zjedzone','EatedProducts@create')->middleware('auth')->name('Eated');
 Route::post('Uzytkownik/zjedzone','EatedProducts@store')->name('DoEated');

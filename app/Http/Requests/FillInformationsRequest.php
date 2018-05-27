@@ -36,6 +36,7 @@ class FillInformationsRequest extends FormRequest
             'FitWaist' => 'required|in:Yes,No',
             'Pattern' => 'required|in:Mifflin,Harris',
             'ShowBMI' => 'required|in:Yes,No',
+            'Activity' => 'required|in:Ill,Low,Medium,Activ,Very Active,Proffesional',
         ];
     }
     public function messages(){
@@ -56,7 +57,9 @@ class FillInformationsRequest extends FormRequest
             'Destination.in' => 'Została wysłana zła wartość, w polu z celem',
             'FitWaist.required' => 'Pole z opaską jest wymagane',
             'FitWaist.in' => 'Została wysłana zła wartość, w polu z opaską',
-            'Pattern.in' => 'Możesz wybrać jedynie wzory Mifflina lub Harrisa'
+            'Pattern.in' => 'Możesz wybrać jedynie wzory Mifflina lub Harrisa',
+            'Activity.required' => 'Pole z aktywnością fizyczną jest wymagane',
+            'Activity.in' => 'Błędna wartość z pola',
         ];
     }
 }

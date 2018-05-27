@@ -2,7 +2,7 @@
 @section('content')
 <a href="{{ url("/") }}/Produkty" style="right:20px;top:20px;position:absolute;">Wróć do poprzedniej strony</a>
  
-<div class="container-fluid" style="text-align:center;display:flex;align-items:center;justify-content:center;height:100vh;overflow:hidden;">
+<div class="container-fluid text-center">
     
     <form method="POST" action="{{ route('add')}}">
         <h1>Dodaj produkt</h1>
@@ -14,7 +14,6 @@
                 </ul>
         @endif
         @csrf
-    <fieldset>
         <div class="form-row">
                 <div class="form-group col-md-6">
                         <label for="ProductName">Nazwa Produktu</label>
@@ -67,41 +66,8 @@
                         <textarea style="width:100%;" id="Description" class="form-control" name="Description" value=0></textarea>
                 </div>
         </div>
-        
-        <!--
-           
-                   
-                      
-                                
-                        
-                                <label for="Vitamins" class="col-sm-2 col-form-label">Witaminy produktu</label>
-                                <div class="col-sm-10">
-                                        <input type="text" step=0.1 min=0 required class="form-control" id="Vitamins" name="Vitamins"/>
-                                </div>
-                                </div>
-                                <div class="form-group row">
-                                        <label for="Category" class="col-sm-2 col-form-label">Podaj kategorie produktu</label>
-                                        <div class="col-sm-10">
-                                                <select style="width:100%;" id="Category" class="form-control" name="Category">
-                                                                @php
-                                                                $Categories = DB::table('categories')
-                                                                 ->select('CategoryName','id')
-                                                                 ->get();
-                                                                foreach($Categories as $Category)
-                                                                        echo '<option value="'.$Category->id.'">'.$Category->CategoryName.'</option>';
-                                                         @endphp
-                                                </select>
-                                        </div>
-                                        </div>
-                                <div class="form-group row">
-                                        <label for="Description" class="col-sm-2 col-form-label">Podaj opis produktu</label>
-                                        <div class="col-sm-10">
-                                                <textarea style="width:100%;" id="Description" class="form-control" name="Description" value=0></textarea>
-                                        </div>
-                                        </div>
-                                -->
             <input type="submit" value="Wyślij" class="btn btn-primary"/>
-    </fieldset>
+
 </form>
 </div>
 @endsection

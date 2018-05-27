@@ -22,6 +22,7 @@ class PersonTables extends Seeder
         $Person->FitWaist = "Yes";
         $Person->Pattern = "Mifflin";
         $Person->ShowBMI = "Yes";
+        $Person->Activity = "Medium";
         $Person->save();
 
         $Person = new Persons();
@@ -35,6 +36,7 @@ class PersonTables extends Seeder
         $Person->FitWaist = "Yes";
         $Person->Pattern = "Mifflin";
         $Person->ShowBMI = "Yes";
+        $Person->Activity = "Medium";
         $Person->save();
 
         $Person = new Persons();
@@ -48,6 +50,7 @@ class PersonTables extends Seeder
         $Person->FitWaist = "No";
         $Person->Pattern = "Mifflin";
         $Person->ShowBMI = "Yes";
+        $Person->Activity = "Medium";
         $Person->save();
     }
 }

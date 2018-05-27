@@ -15,17 +15,17 @@ class CreateGirtsTable extends Migration
     {
         Schema::create('girts', function (Blueprint $table) {
             $table->integer('PersonId')->unsigned();
-            $table->float('Calf',8,2); //Łydka
-            $table->float('Pas',8,2); // Pas
-            $table->float('Waist',8,2); //Talia
-            $table->float('Chest',8,2); // Klatka piersiowa
-            $table->float('Hips',8,2); //Biodra
-            $table->float('Thigh',8,2); //Udo
-            $table->float('Arm',8,2); //Ramię
+            $table->float('Calf',8,2)->unsigned(); //Łydka
+            $table->float('Pas',8,2)->unsigned(); // Pas
+            $table->float('Waist',8,2)->unsigned(); //Talia
+            $table->float('Chest',8,2)->unsigned(); // Klatka piersiowa
+            $table->float('Hips',8,2)->unsigned(); //Biodra
+            $table->float('Thigh',8,2)->unsigned(); //Udo
+            $table->float('Arm',8,2)->unsigned(); //Ramię
             $table->timestamps();
         });
         Schema::table('girts', function (Blueprint $table) {       
-            $table->foreign('PersonId')->references('id')->on('users');
+            $table->foreign('PersonId')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

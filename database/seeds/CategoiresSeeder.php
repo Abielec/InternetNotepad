@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Categories;
+
 class CategoiresSeeder extends Seeder
 {
     /**
@@ -44,11 +45,19 @@ class CategoiresSeeder extends Seeder
         $Category->save();
 
         $Category = new Categories();
-        $Category->categoryname = 'Nabiał i jaja';
+        $Category->categoryname = 'Jaja';
         $Category->save();
 
         $Category = new Categories();
         $Category->categoryname = 'Bezglutenowe';
+        $Category->save();
+        
+        $Category = new Categories();
+        $Category->categoryname = 'Płatki śniadaniowe';
+        $Category->save();
+
+        $Category = new Categories();
+        $Category->categoryname = 'Pieczywo';
         $Category->save();
     }
 }

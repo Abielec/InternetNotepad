@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FillInformationsRequest;
 use Illuminate\Http\Request;
 use App\Persons;
+use Illuminate\Support\Facades\DB;
 class Person extends Controller
 {
 
@@ -20,7 +21,8 @@ class Person extends Controller
     public function index()
     {
         $Person = Persons::all();
-       return view('Person.Informations',compact('Person'));
+
+      return view('Person.user',compact('Person'));
     }
 
     /**
